@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>WhatsApp lite</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style.css">
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+		integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+
+	<script>
+		var name = prompt("Please enter your name");
+	</script>
+</head>
+
+<body>
+
+	<div id="intro">
+
+		<h1><i class="fab fa-whatsapp"></i> WhatsApp Lite</h1>
+
+	</div>
+
+	<ul id="messages"></ul>
+
+	<form action="">
+		<input id="m" placeholder="Enter your message..." autocomplete="off" required /><button>Send</button>
+	</form>
+
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script>
+		var socket = io(); socket.emit('joining msg', name);
+		$('form').submit(function (e) {
+			e.preventDefault();
+			var now = moment().format('h:mm a');
+			socket.emit('chat message', (name + ': ' + $('#m').val()));
+			$('#messages').append($('<li id="list">').text('You: ' + $('#m').val() + ' (' + now + ')'));
+			$('#m').val(''); return false;
+		});
+
+		socket.on('chat message', function (msg) {
+			var now = moment().format('h:mm a');
+			$('#messages').append($('<li>').text(msg + ' (' + now + ')'));
+		});
+	</script>
+</body>
+</html>

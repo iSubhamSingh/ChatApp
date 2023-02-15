@@ -1,0 +1,82 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Helvetica Neue', sans-serif;
+}
+
+body {
+	background-color: #f7f7f7;
+    background-image: url(bg.jpg);
+}
+
+#intro {
+	background-color: #21f3c6;
+	color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 70px;
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+form {
+	background-color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	padding: 10px;
+	position: fixed;
+	bottom: 0;
+	box-shadow: 0px -3px 6px rgba(0, 0, 0, 0.16);
+}
+
+form input {
+	background-color: #F7F7F7;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 50px;
+	width: 75%;
+	margin-right: 20px;
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+	font-size: 16px;
+	outline: none;
+}
+
+form button {
+	background-color: #12dd60;
+	color: #FFFFFF;
+	border: none;
+	border-radius: 50px;
+	padding: 10px 20px;
+	font-size: 16px;
+	cursor: pointer;
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+	outline: none;
+}
+
+#messages {
+	list-style-type: none;
+	margin: 70px 30px 30px 30px;
+	padding: 0;
+	background-color: #FFFFFF;
+	border-radius: 10px;
+	overflow-y: scroll;
+	height: 60vh;
+}
+
+#messages li {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin-bottom: 20px;
+	padding: 20px;
+	background-color: #F7F7F7;
+	border-radius: 10px;
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+#list {
+	text-align: right;
+}
