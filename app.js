@@ -35,6 +35,6 @@ io.on('connection', (socket) => {
   });
 });
 
-server.listen(8000, () => {
-  console.log('Server listening on :8000');
+server.listen(4200, () => {
+  console.log('Server listening on :4200');
 });
