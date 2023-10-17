@@ -35,6 +35,6 @@ io.on('connection', (socket) => {
   });
 });
 
-server.listen(4200, () => {
-  console.log('Server listening on :4200');
+server.listen(8080, () => {
+  console.log('Server listening on :8080');
 });
