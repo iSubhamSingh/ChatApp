@@ -1,22 +1,22 @@
-var moment = require('moment');
-var express = require('express');
-var http = require('http');
+let moment = require('moment');
+let express = require('express');
+let http = require('http');
 
-var app = express();
-var server = http.createServer(app);
+let app = express();
+let server = http.createServer(app);
 
-var io = require('socket.io')(server); 
-var path = require('path');
+let io = require('socket.io')(server); 
+let path = require('path');
 app.use(express.static(path.join(__dirname, './public')));
 
 app.get('/', (req, res) => {
   res.sendFile(dirname + '/public/index.html');
 });
 
-var name;
+let name;
 
 io.on('connection', (socket) => {
-  var now = moment().format('h:mm a'); 
+  let now = moment().format('h:mm a'); 
   console.log('new user connected -', now);
 
   socket.on('joining msg', (username) => {
@@ -26,7 +26,7 @@ io.on('connection', (socket) => {
   });
 
   socket.on('disconnect', () => {
-    var now = moment().format('h:mm a'); console.log('user disconnected -', now);
+    let now = moment().format('h:mm a'); console.log('user disconnected -', now);
     io.emit('chat message', `___ ${name} has left the chat ___`);
 
   });
@@ -37,5 +37,5 @@ io.on('connection', (socket) => {
 
 const port = process.env.PORT || 3000;
 server.listen(port, () => {
-  console.log('Server listening on :4200');
+  console.log('Server listening on :3000');
 });
