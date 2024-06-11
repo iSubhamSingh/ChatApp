@@ -1,6 +1,6 @@
 # Simple Chat App with Socket.IO
 
-This is a basic chat application built using Socket.IO, JavaScript, Node.js, HTML, and CSS. It allows users to join chat rooms and exchange messages in real-time.
+This is a basic peer to peer chat application built using Socket.IO, JavaScript, Node.js, HTML, and CSS. It allows users to chat and exchange messages in real-time.
 
 ## Features
 
