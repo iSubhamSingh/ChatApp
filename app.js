@@ -9,7 +9,7 @@ let io = require('socket.io')(server);
 let path = require('path');
 app.use(express.static(path.join(__dirname, './public')));
 
-app.get('/', (req, res) => {
+app.get('/', (req, res) => {                // Serving static html file on the get request
   res.sendFile(dirname + '/public/index.html');
 });
 
@@ -22,12 +22,12 @@ io.on('connection', (socket) => {
   socket.on('joining msg', (username) => {
 
     name = username.toUpperCase();
-    io.emit('chat message', `___ ${name} has joined the chat ___`);
+    io.emit('chat message', ` ${name} has joined the chat `);
   });
 
   socket.on('disconnect', () => {
     let now = moment().format('h:mm a'); console.log('user disconnected -', now);
-    io.emit('chat message', `___ ${name} has left the chat ___`);
+    io.emit('chat message', ` ${name} has left the chat `);
 
   });
   socket.on('chat message', (msg) => {
@@ -37,5 +37,5 @@ io.on('connection', (socket) => {
 
 const port = process.env.PORT || 3000;
 server.listen(port, () => {
-  console.log('Server listening on :3000');
+  console.log('Server listening on port 3000');
 });
